@@ -1,6 +1,10 @@
+val kotlin_version: String by extra
 plugins {
     id("com.android.application")
     kotlin("android")
+}
+apply {
+    plugin("kotlin-android")
 }
 
 dependencies {
@@ -9,6 +13,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
+    implementation ("com.github.corouteam:GlideToVectorYou:v2.0.0")
+    implementation("androidx.core:core-ktx:1.5.0")
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
 }
 
@@ -26,4 +34,7 @@ android {
             isMinifyEnabled = false
         }
     }
+}
+repositories {
+    mavenCentral()
 }

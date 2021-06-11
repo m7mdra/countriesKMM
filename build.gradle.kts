@@ -1,4 +1,6 @@
 buildscript {
+    var kotlin_version: String by extra
+    kotlin_version = "1.5.20-RC"
     repositories {
         gradlePluginPortal()
         google()
@@ -18,6 +20,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven(url = "https://jitpack.io")
     }
 }
 

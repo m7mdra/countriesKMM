@@ -2,10 +2,13 @@ package com.m7mdra.myapplication.android
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
+import android.view.View
+import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.m7mdra.myapplication.network.CountryApi
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancelChildren
 import kotlinx.coroutines.launch
 
 
@@ -15,21 +18,27 @@ class MainActivity : AppCompatActivity() {
         CountryApi()
     }
 
+    override fun onStop() {
+        super.onStop()
+        mainScope.coroutineContext.cancelChildren()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val progressbar = findViewById<ProgressBar>(R.id.progressBar)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
-        val tv: TextView = findViewById(R.id.text_view)
         mainScope.launch {
-            tv.text = "Loading..."
+            progressbar.visibility = View.VISIBLE
             kotlin.runCatching {
                 countryApi.getAll()
             }.onSuccess {
-                tv.text = "Loaded data of ${it.size} countries"
-
-                Log.d("MEGA", "onCreate: got ${it.size} countries")
+                recyclerView.adapter  = CountryAdapter(this@MainActivity,it)
+                progressbar.visibility = View.GONE
             }.onFailure {
-                tv.text = "error"
+                progressbar.visibility = View.GONE
+
 
             }
         }
