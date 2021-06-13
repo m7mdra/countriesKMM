@@ -10,6 +10,7 @@
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		293450B4CC0FBB0D5AE34D43 /* Pods_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A17E73321F50E8F58F1BD921 /* Pods_ios.framework */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		F023AC902674B35200FD3C24 /* CountryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F023AC8F2674B35200FD3C24 /* CountryRowView.swift */; };
 		F0E74DC92673BF60001A68DC /* CountryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E74DC82673BF60001A68DC /* CountryViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +21,7 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A17E73321F50E8F58F1BD921 /* Pods_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E654C35E18A917C9B09A147A /* Pods-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.debug.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		F023AC8F2674B35200FD3C24 /* CountryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowView.swift; sourceTree = "<group>"; };
 		F0E74DC82673BF60001A68DC /* CountryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewModel.swift; sourceTree = "<group>"; };
 		FB80089E9A6F44F291DF62DA /* Pods-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios.release.xcconfig"; path = "Target Support Files/Pods-ios/Pods-ios.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				F0E74DC82673BF60001A68DC /* CountryViewModel.swift */,
+				F023AC8F2674B35200FD3C24 /* CountryRowView.swift */,
 			);
 			path = ios;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			files = (
 				F0E74DC92673BF60001A68DC /* CountryViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				F023AC902674B35200FD3C24 /* CountryRowView.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

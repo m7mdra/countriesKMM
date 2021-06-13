@@ -1,13 +1,13 @@
 package com.m7mdra.myapplication.android
 
 import android.content.Context
-import android.graphics.drawable.PictureDrawable
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.RequestBuilder
-import com.github.twocoffeesoneteam.glidetovectoryou.GlideApp
+import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
 import com.m7mdra.myapplication.network.model.Country
+import com.squareup.picasso.Picasso
 
 
 class CountryAdapter(
@@ -16,12 +16,9 @@ class CountryAdapter(
     private val onClick: (Country) -> Unit = {}
 ) :
     RecyclerView.Adapter<CountryViewHolder>() {
-    private val requestBuilder: RequestBuilder<PictureDrawable> by lazy{
-        GlideApp.with(context)
-            .`as`(PictureDrawable::class.java)
-            .listener(SvgSoftwareLayerSetter())
-
-    }
+    val picasso = Picasso.Builder(context)
+        .loggingEnabled(true)
+        .build()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
         return CountryViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.row_country, parent, false)
@@ -30,8 +27,12 @@ class CountryAdapter(
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         val country = list[position]
-        requestBuilder.load(country.flag).into(holder.flagImageView);
+        picasso.load("https://flagcdn.com/h240/${country.alpha2Code.lowercase()}.png")
 
+            .into(holder.flagImageView)
+        holder.view.setOnClickListener {
+            onClick.invoke(country)
+        }
         holder.nameTextView.text = country.name
         holder.nativeNameText.text = country.nativeName
     }

@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
             kotlin.runCatching {
                 countryApi.getAll()
             }.onSuccess {
-                recyclerView.adapter  = CountryAdapter(this@MainActivity,it)
+                recyclerView.adapter  = CountryAdapter(this@MainActivity,it){
+                    Log.d("MEGA", "onCreate: $it")
+                }
                 progressbar.visibility = View.GONE
             }.onFailure {
                 progressbar.visibility = View.GONE

@@ -26,8 +26,7 @@ data class Country(
     val currencies: List<Currency>,
     @SerialName("demonym")
     val demonym: String,
-    @SerialName("flag")
-    val flag: String,
+
     @SerialName("gini")
     val gini: Double?,
     @SerialName("languages")
@@ -54,4 +53,7 @@ data class Country(
     val topLevelDomain: List<String>,
     @SerialName("translations")
     val translations: Translations
-)
+) {
+    val flag: String
+        get() = "https://flagcdn.com/h240/${alpha2Code.toLowerCase()}.png"
+}
